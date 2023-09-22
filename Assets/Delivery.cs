@@ -9,6 +9,7 @@ public class Delivery : MonoBehaviour
     
     [SerializeField] float destroyDelay = 0.5f;
     bool hasPackage;
+    private int numberPackage = 5;
 
     SpriteRenderer spriteRenderer;
 
@@ -37,6 +38,10 @@ public class Delivery : MonoBehaviour
             Debug.Log("Package Delivered");
             hasPackage = false;
             spriteRenderer.color = noPackageColor;
+            if (--numberPackage == 0)
+            {
+                UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+            }
         }
     }
 }
